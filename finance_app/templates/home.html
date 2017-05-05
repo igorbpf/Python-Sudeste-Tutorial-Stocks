@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+<div class='row'>
+  <div class='col-md-6 col-sm-6' style="padding-bottom: 70px;">
+    <div class="panel-body" style="min-height:50% width:80%">
+    <form method="POST" action='/home'>
+    <div class="form-group">
+      {{ form.hidden_tag() }}
+    </div>
+    <div class="form-group">
+      {{ form.stocks.label }}
+      <br>
+      {{ form.stocks(class_="form-control") }}
+      <br>
+      {{ form.days_ahead.label }}
+      <br>
+      {{ form.days_ahead(class_="form-control") }}
+      <br>
+      {{ form.days_before.label }}
+      <br>
+      {{ form.days_before(class_="form-control") }}
+      <br>
+      <strong>Indicadores:</strong>
+      <br>
+      <br>
+      {{ form.sma.label }}
+      <br>
+      {{ form.sma(class_="form-control") }}
+      <br>
+      {{ form.bb.label }}
+      <br>
+      {{ form.bb(class_="form-control") }}
+      <br>
+      {{ form.vol.label }}
+      <br>
+      {{ form.vol(class_="form-control") }}
+      <br>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </div>
+    </form>
+
+    </div>
+  </div>
+
+  <div class='col-md-6 col-sm-6 text-center'>
+    {% if data %}
+      <br>
+      <div class="jumbotron">
+       <h3>Previsão de Preço:</h3>
+       <h1>R$ {{ data.prev }}</h1>
+      <br>
+      <h3>Confiabilidade:</h3>
+       <div class="row lead">
+              <span>
+                {% for i in range(data.conf) %}
+                <i class="glyphicon glyphicon-star"></i>
+                {% endfor %}
+              </span>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

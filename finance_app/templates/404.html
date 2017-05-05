@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class='row'>
+<div class="text-center" style="padding-top: 100px;">
+        <div class="text-center"><h1>404</h1> <i class="fa fa-warning"></i></div>
+        <h3 class="font-bold">Página não encontrada!</h3>
+
+        <div class="error-desc">
+            Desculpe, mas esta página não está disponível. <br/>
+            Tente atualizar a página ou voltar a pagina principal.
+            <div>
+                <a class=" login-detail-panel-button btn" href="{{ url_for('welcome') }}">
+                        <i class="fa fa-arrow-left"></i>
+                        Volte à Página Inicial
+                    </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
